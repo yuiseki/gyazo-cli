@@ -72,8 +72,8 @@ const uploadToGyazoDeviceId = (imagedata, title = undefined, url = undefined, de
         body: formData,
     });
     if (res.ok) {
-        const gyazoURL = yield res.text();
-        return gyazoURL;
+        const gyazoUrl = yield res.text();
+        return gyazoUrl;
     }
     else {
         console.error(yield res.text());

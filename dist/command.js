@@ -32,7 +32,6 @@ const argv = (0, yargs_1.default)(process.argv.slice(2))
     .parseSync();
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     var e_1, _a, e_2, _b;
-    let result = undefined;
     if (argv.stdin) {
         const buffers = [];
         try {
@@ -49,7 +48,8 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
             finally { if (e_1) throw e_1.error; }
         }
         const buffer = Buffer.concat(buffers);
-        result = yield (0, _1.uploadToGyazoDeviceId)(buffer);
+        const result = yield (0, _1.uploadToGyazoDeviceId)(buffer);
+        console.log(result);
     }
     else {
         try {
@@ -57,7 +57,8 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
                 const filepath = _f.value;
                 if (typeof filepath === "string") {
                     const file = yield fs_1.promises.readFile(filepath);
-                    result = yield (0, _1.uploadToGyazoDeviceId)(file);
+                    const result = yield (0, _1.uploadToGyazoDeviceId)(file);
+                    console.log(result);
                 }
             }
         }
@@ -69,7 +70,6 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
             finally { if (e_2) throw e_2.error; }
         }
     }
-    console.log(result);
 });
 (() => __awaiter(void 0, void 0, void 0, function* () {
     try {

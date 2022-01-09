@@ -66,8 +66,8 @@ export const uploadToGyazoDeviceId = async (
     body: formData,
   });
   if (res.ok) {
-    const gyazoURL = await res.text();
-    return gyazoURL;
+    const gyazoUrl = await res.text();
+    return gyazoUrl;
   } else {
     console.error(await res.text());
     return undefined;
