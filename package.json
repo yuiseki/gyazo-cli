@@ -1,7 +1,7 @@
 {
   "name": "@yuiseki/gyazo",
   "version": "0.0.1",
-  "description": "CLI for Gyazo",
+  "description": "CLI and package for Gyazo",
   "main": "dist/index.js",
   "bin": {
     "gyazo": "./bin/gyazo.js"
