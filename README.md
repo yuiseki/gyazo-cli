@@ -44,11 +44,13 @@ cat /path/to/image.png | gyazo -i
 ## Basic Usage as package
 
 ```typescript
+import path from "path";
 import { promises as fs } from "fs";
 import { uploadToGyazoDeviceId } from "@yuiseki/gyazo";
 
-const buffer = await fs.readFile(filepath);
-const gyazoUrl = await uploadToGyazoDeviceId(buffer);
+const filename = path.basename(filepath);
+const fileBuffer = await fs.readFile(filepath);
+const gyazoUrl = await uploadToGyazoDeviceId(fileBuffer, filename);
 console.log(gyazoUrl);
 ```
 

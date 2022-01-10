@@ -19,6 +19,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = __importDefault(require("path"));
 const fs_1 = require("fs");
 const yargs_1 = __importDefault(require("yargs/yargs"));
 const _1 = require(".");
@@ -56,8 +57,9 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
             for (var _e = __asyncValues(argv._), _f; _f = yield _e.next(), !_f.done;) {
                 const filepath = _f.value;
                 if (typeof filepath === "string") {
-                    const file = yield fs_1.promises.readFile(filepath);
-                    const result = yield (0, _1.uploadToGyazoDeviceId)(file);
+                    const filename = path_1.default.basename(filepath);
+                    const fileBuffer = yield fs_1.promises.readFile(filepath);
+                    const result = yield (0, _1.uploadToGyazoDeviceId)(fileBuffer, filename);
                     console.log(result);
                 }
             }

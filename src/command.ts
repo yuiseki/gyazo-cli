@@ -1,3 +1,4 @@
+import path from "path";
 import { promises as fs } from "fs";
 import yargs from "yargs/yargs";
 import { uploadToGyazoDeviceId } from ".";
@@ -21,8 +22,9 @@ const main = async () => {
   } else {
     for await (const filepath of argv._) {
       if (typeof filepath === "string") {
-        const file = await fs.readFile(filepath);
-        const result = await uploadToGyazoDeviceId(file);
+        const filename = path.basename(filepath);
+        const fileBuffer = await fs.readFile(filepath);
+        const result = await uploadToGyazoDeviceId(fileBuffer, filename);
         console.log(result);
       }
     }

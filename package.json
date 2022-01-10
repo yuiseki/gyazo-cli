@@ -1,7 +1,7 @@
 {
   "name": "@yuiseki/gyazo",
-  "version": "0.0.1",
-  "description": "CLI and package for Gyazo",
+  "version": "0.0.2",
+  "description": "CLI tool and npm package for Gyazo",
   "main": "dist/index.js",
   "bin": {
     "gyazo": "./bin/gyazo.js"
@@ -20,7 +20,7 @@
     "image upload"
   ],
   "author": "Yui Matsumura <yuiseki@gmail.com> (https://twitter.com/yuiseki_)",
-  "license": "ISC",
+  "license": "WTFPL",
   "devDependencies": {
     "@types/node": "^17.0.8",
     "@types/node-fetch": "^2.5.12",
